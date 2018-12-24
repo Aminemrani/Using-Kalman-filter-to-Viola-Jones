@@ -3,8 +3,8 @@ import sys
 import cv2
 import numpy as np
 
-face_cascade = cv2.CascadeClassifier('C:/Users/Amin/Desktop/Wcode/haarcascade_frontalface_default.xml')
-
+##To detect the face, our measurment method
+face_cascade = cv2.CascadeClassifier('C:/Users/Amin/Desktop/Wcode/haarcascade_frontalface_default.xml')   #you should download the haarcascade_frontalface_default.xml file and change the root  
 
 def detect_one_face(im):
     gray=cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
@@ -14,12 +14,10 @@ def detect_one_face(im):
         return (0,0,0,0)
     return faces[0]
 
-
 fourcc = cv2.VideoWriter_fourcc(*'MJPG')
 out=None
 
-
-
+#Here I use my second camera, you can simply give a video address instead
 cap = cv2.VideoCapture(1) 
 frameCounter = 0
 ret ,frame = cap.read()
